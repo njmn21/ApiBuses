@@ -1,13 +1,13 @@
 package com.ApiBuses.ApiBuses.persistence.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -22,11 +22,12 @@ public class Bus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long numeroBus;
+
+    @Column(nullable = false)
     private String placa;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false, updatable = false)
-    private Date fechaCreacion;
+    @Column(nullable = false)
+    private LocalDate fechaCreacion;
 
     private String caracteristicas;
 
